@@ -1,0 +1,79 @@
+﻿
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        #submitbutton:hover{
+            box-shadow:inherit;
+        background-color: white;
+        color:blue;
+            }
+        body{
+            background-color: dimgrey;
+        }
+       #RyansApp{
+           color: orange;
+       }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" RyansWebsite", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-home" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink(" CreateUser", "Create", "User", new { area = "" }, new { @class = "glyphicon glyphicon-user" })</li> @*new { @class = "glyphicon glyphicon-user" })</li>*@
+                    <li>@Html.ActionLink(" List-of-Users", "Index", "User", new { area = "" }, new { @class = "glyphicon glyphicon-list" }) </li> @*, new { @class = "glyphicon glyphicon-list" })*@
+                        <li>@Html.ActionLink(" CreatePet", "Create", "Pet", new { area = "" }, new { @class = "glyphicon glyphicon-user" })</li>@*, new { @class = "glyphicon glyphicon-user" })</li>*@
+                        <li>@Html.ActionLink(" List-of-Pets", "Index", "Pet", new { area = "" }, new { @class = "glyphicon glyphicon-list" })</li>@*, new { @class = "glyphicon glyphicon-list" })</li>*@
+                    }
+
+                    <li>@Html.ActionLink(" BootStrap", "Index", "BootStrap", new { area = "" }, new { @class = "glyphicon glyphicon-tower" })</li>@*, new { @class = "glyphicon glyphicon-tower" }</li>*@
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="search" />
+                    </div>
+                    <button id="submitbutton" type="submit" class="btn btn-default glyphicon glyphicon-search"  >
+                         Submit
+                    </button>
+                </form>
+
+                @Html.Partial("_LoginPartial")
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p id="RyansApp">&copy; @DateTime.Now.Year -Ryans Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

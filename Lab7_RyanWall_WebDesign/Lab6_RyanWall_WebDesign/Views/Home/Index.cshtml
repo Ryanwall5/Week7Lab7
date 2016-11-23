@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+
+    var greet = "Welcome To My WebSite!";
+    var getdate = DateTime.Now;
+    var date = "Today is: " + getdate;
+}
+
+@if (Request.IsAuthenticated)
+{
+    <p style="">
+    <br /> <br /> <br />
+            <center> <h2 style="color: red; font-style: italic; background-color: skyblue; font-size: 75px">Home Page</h2> </center>
+            
+            <center style="color:orange; font-size:large;"> @greet </center>
+            <center style="padding-bottom: 50px; color:orange; font-size:large;"> @date </center>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div id="imagecarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#imageCarousel" data-slide-to="1"></li>
+                            <li data-target="#imageCarousel" data-slide-to="2"></li>
+                          
+
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+
+                             <img src="~/Content/Oregontech.jpg" height="400" class="img-responsive" style="image-rendering:optimizeQuality" />
+                               
+                               
+                                </div>
+                                <div class="item">
+                                    <img src="~/Content/videogame.jpg" height="400" class="img-responsive" style="image-rendering:optimizeQuality" />
+                                  
+                                </div>
+                            <div class="item">
+                             <img src="~/Content/aschedule.JPG" height="400" class="img-responsive" style="image-rendering:optimizeQuality"/>
+                               
+                               
+                                
+                            </div>
+                              
+                        </div>    
+                       
+                     </div>
+               
+                 </div>
+            </div>
+         </div>
+          
+    </p>
+
+
+
+    @*<div>
+        @Html.ActionLink("Create User", "Create", "User")
+    </div>*@
+}
+else
+{
+    <p >
+        <center> <h2 style="color: red; font-style: italic; background-color: skyblue">Home Page</h2> </center>
+        <center> @greet </center>
+       
+        <center style="padding-bottom: 50px"> @date </center>
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div id="imagecarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#imageCarousel" data-slide-to="1"></li>
+                            <li data-target="#imageCarousel" data-slide-to="2"></li>
+                           
+
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+
+                                <img src="~/Content/Oregontech.jpg" height="400" class="img-responsive" style="image-rendering:optimizeQuality"/>
+
+
+                            </div>
+                            <div class="item">
+                                <img src="~/Content/videogame.jpg" height="400" class="img-responsive" style="image-rendering:optimizeQuality" />
+
+                            </div>
+                            <div class="item">
+                                <img src="~/Content/aschedule.JPG" height="400" class="img-responsive" style="image-rendering:optimizeQuality"/>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </p>
+}
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#imageCarousel').carousel();
+
+
+    })
+
+
+
+
+</script>
+
+

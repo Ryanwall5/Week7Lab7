@@ -1,0 +1,42 @@
+﻿@model Lab6_RyanWall_WebDesign.Models.Pet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfAnimal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfAnimal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfFood)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfFood)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
